@@ -2,7 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "./styles.css";
 
-const skills = [
+type Skill = {
+  name: string;
+  emoji: string;
+  bgColor: string;
+  color: string;
+};
+
+const skills: Skill[] = [
   {
     name: "HTML",
     emoji: "📝",
@@ -94,11 +101,11 @@ function App() {
   );
 }
 
-function SkillList(props: any) {
-  console.log(props.skills);
+function SkillList({ skills }: { skills: Skill[] }) {
+  console.log(skills);
   return (
     <ul className="skill-list">
-      {props.skills.map((skill: any) => (
+      {skills.map((skill: any) => (
         <li
           key={skill.name}
           className="skill"
