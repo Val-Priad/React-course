@@ -7,6 +7,7 @@
 - Section 6.1: Far away project
 - Section 6.2: Accordion component
 - Section 6.3: Steps component with children property
+- Section 6.4: Accordion component but only one faq can be open
 
 ## Coding challenges
 
