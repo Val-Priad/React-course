@@ -5,6 +5,7 @@
 - Section 5: Pizza menu project
 - Section 6: Steps component
 - Section 6.1: Far away project
+- Section 6.2: Accordion component
 
 ## Coding challenges
 
