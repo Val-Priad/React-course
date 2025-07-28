@@ -17,3 +17,4 @@
 - Challenge 3: Cards, one card selection with id
 - Challenge 4: Modified version of Challenge 2
 - Challenge 5: Tip calculator
+- Challenge 6: Text expander
