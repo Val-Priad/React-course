@@ -306,6 +306,22 @@ function MovieDetails({
     [movie]
   );
 
+  useEffect(
+    function () {
+      const callback = (e: KeyboardEvent) => {
+        if (e.key !== "Escape") return;
+        onCloseMovie();
+      };
+
+      document.addEventListener("keydown", callback);
+
+      return function () {
+        document.removeEventListener("keydown", callback);
+      };
+    },
+    [onCloseMovie]
+  );
+
   function handleAddToList() {
     if (watchedAlready) {
       alert("You can't add movies that was previously added before");
@@ -440,9 +456,9 @@ export default function App() {
           if (data.Response === "False") throw new Error("Movie not found");
           setMovies(data.Search);
         } catch (error) {
-          if (error instanceof Error && error.name !== "AbortError")
-            setError(error.message);
-          else console.log("Unexpected Error 💥💥💥");
+          if (error instanceof Error) {
+            if (error.name !== "AbortError") setError(error.message);
+          } else console.log(`Unexpected Error 💥💥💥: ${error}`);
         } finally {
           setIsLoaded(true);
         }
@@ -450,6 +466,7 @@ export default function App() {
 
       setMovies([]);
       setError("");
+      handleCloseMovie();
       if (!query.length) return;
 
       fetchMovies();
