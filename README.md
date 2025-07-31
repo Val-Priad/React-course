@@ -18,3 +18,4 @@
 - Challenge 4: Modified version of Challenge 2
 - Challenge 5: Tip calculator
 - Challenge 6: Text expander
+- Challenge 7: Currency converter
