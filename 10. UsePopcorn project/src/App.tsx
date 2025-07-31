@@ -18,6 +18,7 @@ type MovieWatchedT = {
   runtime: number;
   imdbRating: number;
   userRating: number;
+  countRatingDecisions: number;
 };
 
 interface RatingResponseT {
@@ -301,6 +302,14 @@ function MovieDetails({
   const [error, setError] = useState("");
   const [userRating, setUserRating] = useState(0);
   const watchedAlready = watched.some((movie) => movie.imdbId === selectedId);
+  const countRef = useRef(0);
+
+  useEffect(
+    function () {
+      if (userRating) countRef.current += 1;
+    },
+    [userRating]
+  );
 
   useEffect(
     function () {
@@ -365,6 +374,7 @@ function MovieDetails({
       runtime: Number.parseInt(runtime),
       imdbRating: Number.parseFloat(imdbRating),
       userRating: userRating,
+      countRatingDecisions: countRef.current,
     };
     onAddWatched(newMovie);
     onCloseMovie();
