@@ -110,7 +110,7 @@ function Box({ children }: { children: React.ReactNode }) {
         className="btn-toggle"
         onClick={() => setIsOpen((open) => !open)}
       >
-        {isOpen ? "–" : "+"}
+        {isOpen ? "-" : "+"}
       </button>
       {isOpen && children}
     </div>
@@ -419,14 +419,19 @@ function MovieDetails({
 
 export default function App() {
   const [movies, setMovies] = useState([]);
-  const [watched, setWatched] = useState<MovieWatchedT[]>([]);
   const [isLoaded, setIsLoaded] = useState(true);
   const [error, setError] = useState("");
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState("");
+  // const [watched, setWatched] = useState<MovieWatchedT[]>([]);
+  const [watched, setWatched] = useState<MovieWatchedT[]>(() => {
+    const storedValue = localStorage.getItem("watched");
+    return storedValue ? JSON.parse(storedValue) : [];
+  });
 
   function handleAddWatched(movie: MovieWatchedT) {
     setWatched((watched) => [...watched, movie]);
+    // localStorage.setItem("watched", JSON.stringify([...watched, movie]));
   }
 
   function handleDeleteWatched(id: string) {
@@ -476,6 +481,14 @@ export default function App() {
       };
     },
     [query]
+  );
+
+  useEffect(
+    function () {
+      localStorage.setItem("watched", JSON.stringify(watched));
+      // localStorage.setItem("watched", JSON.stringify([...watched, movie]));
+    },
+    [watched]
   );
 
   return (
