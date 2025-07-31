@@ -1,5 +1,5 @@
 import * as Config from "./config";
-import React, { useEffect, useState } from "react";
+import React, { RefObject, useEffect, useRef, useState } from "react";
 import StarRating from "./StarRating";
 
 type MovieSearchResponseT = {
@@ -79,6 +79,34 @@ function Search({
   query: string;
   setQuery: (query: string) => void;
 }) {
+  const inputElement: RefObject<HTMLInputElement | null> = useRef(null);
+  // // Not React way of doing things
+  // useEffect(function () {
+  //   const el: HTMLInputElement | null = document.querySelector(".search");
+  //   if (el) el.focus();
+  // }, []);
+
+  useEffect(function () {
+    // Runs only when dom has loaded #2
+    inputElement.current?.focus();
+  }, []);
+
+  useEffect(
+    function () {
+      const handleEnterDown = (e: KeyboardEvent) => {
+        if (e.key !== "Enter") return;
+        if (document.activeElement === inputElement.current) return;
+        setQuery("");
+        inputElement.current?.focus();
+      };
+      document.addEventListener("keydown", handleEnterDown);
+      return function () {
+        document.removeEventListener("keydown", handleEnterDown);
+      };
+    },
+    [setQuery]
+  );
+
   return (
     <input
       className="search"
@@ -86,6 +114,7 @@ function Search({
       placeholder="Search movies..."
       value={query}
       onChange={(e) => setQuery(e.target.value)}
+      ref={inputElement} // Loads only when dom has loaded #1
     />
   );
 }
