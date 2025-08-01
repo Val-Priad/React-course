@@ -1,25 +1,9 @@
 import * as Config from "./config";
 import React, { RefObject, useEffect, useRef, useState } from "react";
 import StarRating from "./StarRating";
-
-type MovieSearchResponseT = {
-  imdbID: string;
-  Title: string;
-  Year: string;
-  Poster: string;
-  Type: string;
-};
-
-type MovieWatchedT = {
-  imdbId: string;
-  title: string;
-  year: string;
-  poster: string;
-  runtime: number;
-  imdbRating: number;
-  userRating: number;
-  countRatingDecisions: number;
-};
+import { useMovies, MovieSearchResponseT } from "./useMovies";
+import { useLocalStorage, MovieWatchedT } from "./useLocalStorage";
+import { useKey } from "./useKey";
 
 interface RatingResponseT {
   Source: string;
@@ -92,21 +76,11 @@ function Search({
     inputElement.current?.focus();
   }, []);
 
-  useEffect(
-    function () {
-      const handleEnterDown = (e: KeyboardEvent) => {
-        if (e.key !== "Enter") return;
-        if (document.activeElement === inputElement.current) return;
-        setQuery("");
-        inputElement.current?.focus();
-      };
-      document.addEventListener("keydown", handleEnterDown);
-      return function () {
-        document.removeEventListener("keydown", handleEnterDown);
-      };
-    },
-    [setQuery]
-  );
+  useKey("Enter", () => {
+    if (document.activeElement === inputElement.current) return;
+    setQuery("");
+    inputElement.current?.focus();
+  });
 
   return (
     <input
@@ -304,6 +278,7 @@ function MovieDetails({
   const watchedAlready = watched.some((movie) => movie.imdbId === selectedId);
   const countRef = useRef(0);
 
+  useKey("Escape", onCloseMovie);
   useEffect(
     function () {
       if (userRating) countRef.current += 1;
@@ -342,22 +317,6 @@ function MovieDetails({
       };
     },
     [movie]
-  );
-
-  useEffect(
-    function () {
-      const callback = (e: KeyboardEvent) => {
-        if (e.key !== "Escape") return;
-        onCloseMovie();
-      };
-
-      document.addEventListener("keydown", callback);
-
-      return function () {
-        document.removeEventListener("keydown", callback);
-      };
-    },
-    [onCloseMovie]
   );
 
   function handleAddToList() {
@@ -457,16 +416,11 @@ function MovieDetails({
 }
 
 export default function App() {
-  const [movies, setMovies] = useState([]);
-  const [isLoaded, setIsLoaded] = useState(true);
-  const [error, setError] = useState("");
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState("");
   // const [watched, setWatched] = useState<MovieWatchedT[]>([]);
-  const [watched, setWatched] = useState<MovieWatchedT[]>(() => {
-    const storedValue = localStorage.getItem("watched");
-    return storedValue ? JSON.parse(storedValue) : [];
-  });
+  const [watched, setWatched] = useLocalStorage([]);
+  const [movies, isLoaded, error] = useMovies(query, handleCloseMovie);
 
   function handleAddWatched(movie: MovieWatchedT) {
     setWatched((watched) => [...watched, movie]);
@@ -484,51 +438,6 @@ export default function App() {
   function handleCloseMovie() {
     setSelectedId("");
   }
-
-  useEffect(
-    function () {
-      const controller = new AbortController();
-      async function fetchMovies() {
-        try {
-          setIsLoaded(false);
-          const res = await fetch(`${Config.API_URL}s=${query}`, {
-            signal: controller.signal,
-          });
-          if (!res.ok)
-            throw new Error("Something went wrong when fetching movies");
-          const data = await res.json();
-          if (data.Response === "False") throw new Error("Movie not found");
-          setMovies(data.Search);
-        } catch (error) {
-          if (error instanceof Error) {
-            if (error.name !== "AbortError") setError(error.message);
-          } else console.log(`Unexpected Error 💥💥💥: ${error}`);
-        } finally {
-          setIsLoaded(true);
-        }
-      }
-
-      setMovies([]);
-      setError("");
-      handleCloseMovie();
-      if (!query.length) return;
-
-      fetchMovies();
-
-      return function () {
-        controller.abort();
-      };
-    },
-    [query]
-  );
-
-  useEffect(
-    function () {
-      localStorage.setItem("watched", JSON.stringify(watched));
-      // localStorage.setItem("watched", JSON.stringify([...watched, movie]));
-    },
-    [watched]
-  );
 
   return (
     <>
