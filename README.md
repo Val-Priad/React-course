@@ -8,7 +8,8 @@
 - Section 6.2: Accordion component
 - Section 6.3: Steps component with children property
 - Section 6.4: Accordion component but only one faq can be open
-- Section 8: Eat and split project
+- Section 8: Eat and split project - eat together with friends and split the bill
+- Section 10: UsePopcorn project - select & rate watched movies
 
 ## Coding challenges
 
