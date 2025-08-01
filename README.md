@@ -20,3 +20,4 @@
 - Challenge 5: Tip calculator
 - Challenge 6: Text expander
 - Challenge 7: Currency converter
+- Challenge 8: Get user position with custom hook
