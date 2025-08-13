@@ -10,6 +10,7 @@
 - Section 6.4: Accordion component but only one faq can be open
 - Section 8: Eat and split project - eat together with friends and split the bill
 - Section 10: UsePopcorn project - select & rate watched movies
+- Section 16: React Quiz
 
 ## Coding challenges
 
