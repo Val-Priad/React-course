@@ -11,6 +11,7 @@
 - Section 8: Eat and split project - eat together with friends and split the bill
 - Section 10: UsePopcorn project - select & rate watched movies
 - Section 16: React Quiz
+- Section 18: Atomic blog
 
 ## Coding challenges
 
