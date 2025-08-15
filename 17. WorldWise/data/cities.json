@@ -1,0 +1,112 @@
+{
+  "cities": [
+    {
+      "cityName": "Lisbon",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2027-10-31T15:59:59.138Z",
+      "notes": "My favorite city so far!",
+      "position": {
+        "lat": 38.727881642324164,
+        "lng": -9.140900099907554
+      },
+      "id": 73930385
+    },
+    {
+      "cityName": "Porto",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2027-11-03T12:30:00.000Z",
+      "notes": "Beautiful riverside city with amazing port wine!",
+      "position": {
+        "lat": 41.1579,
+        "lng": -8.6291
+      },
+      "id": 73930386
+    },
+    {
+      "cityName": "Sintra",
+      "country": "Portugal",
+      "emoji": "🇵🇹",
+      "date": "2027-11-01T10:15:30.000Z",
+      "notes": "Fairy tale palaces and stunning mountain views",
+      "position": {
+        "lat": 38.8029,
+        "lng": -9.3817
+      },
+      "id": 73930387
+    },
+    {
+      "cityName": "Madrid",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2027-07-15T08:22:53.976Z",
+      "notes": "",
+      "position": {
+        "lat": 40.46635901755316,
+        "lng": -3.7133789062500004
+      },
+      "id": 17806751
+    },
+    {
+      "cityName": "Barcelona",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2027-07-18T14:45:22.000Z",
+      "notes": "Gaudí's architecture is breathtaking!",
+      "position": {
+        "lat": 41.3851,
+        "lng": 2.1734
+      },
+      "id": 17806752
+    },
+    {
+      "cityName": "Seville",
+      "country": "Spain",
+      "emoji": "🇪🇸",
+      "date": "2027-07-12T16:20:15.000Z",
+      "notes": "Flamenco and amazing tapas culture",
+      "position": {
+        "lat": 37.3886,
+        "lng": -5.9823
+      },
+      "id": 17806753
+    },
+    {
+      "cityName": "Berlin",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2027-02-12T09:24:11.863Z",
+      "notes": "Amazing 😃",
+      "position": {
+        "lat": 52.53586782505711,
+        "lng": 13.376933665713324
+      },
+      "id": 98443197
+    },
+    {
+      "cityName": "Munich",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2027-02-15T11:30:45.000Z",
+      "notes": "Oktoberfest vibes and beautiful Alpine views",
+      "position": {
+        "lat": 48.1351,
+        "lng": 11.5820
+      },
+      "id": 98443198
+    },
+    {
+      "cityName": "Hamburg",
+      "country": "Germany",
+      "emoji": "🇩🇪",
+      "date": "2027-02-09T13:15:30.000Z",
+      "notes": "Maritime charm and vibrant nightlife",
+      "position": {
+        "lat": 53.5511,
+        "lng": 9.9937
+      },
+      "id": 98443199
+    }
+  ]
+}

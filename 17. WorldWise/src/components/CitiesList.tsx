@@ -1,0 +1,35 @@
+import type { TCity } from "../App";
+import CityPreview from "./CityPreview";
+import Message from "./Message";
+import Spinner from "./Spinner";
+import styles from "./styles/CitiesList.module.css";
+
+function CitiesList({
+  cities,
+  isLoading,
+}: {
+  cities: TCity[];
+  isLoading: boolean;
+}) {
+  if (isLoading) {
+    return <Spinner />;
+  }
+
+  if (cities.length === 0) {
+    return (
+      <Message
+        message={"Add your first city by clicking on a city on the map!!!"}
+      />
+    );
+  }
+
+  return (
+    <ul className={styles.cityList}>
+      {cities.map((city) => (
+        <CityPreview city={city} key={city.id} />
+      ))}
+    </ul>
+  );
+}
+
+export default CitiesList;
