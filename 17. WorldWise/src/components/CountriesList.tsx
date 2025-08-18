@@ -1,16 +1,11 @@
-import type { TCity } from "../App";
+import { useCities } from "../contexts/CitiesContext";
 import CountryPreview from "./CountryPreview";
 import Message from "./Message";
 import Spinner from "./Spinner";
 import styles from "./styles/CountriesList.module.css";
 
-function CountriesList({
-  cities,
-  isLoading,
-}: {
-  cities: TCity[];
-  isLoading: boolean;
-}) {
+function CountriesList() {
+  const { cities, isLoading } = useCities();
   if (isLoading) {
     return <Spinner />;
   }
