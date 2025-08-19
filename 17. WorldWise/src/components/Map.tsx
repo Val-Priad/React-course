@@ -25,7 +25,6 @@ function Map() {
     isLoading: isLoadingUserPosition,
   } = useGeolocation();
   const { cities } = useCities();
-  const [searchParams] = useSearchParams();
   const [mapPosition, setMapPosition]: [
     [number, number],
     Dispatch<SetStateAction<[number, number]>>
@@ -33,6 +32,7 @@ function Map() {
   // rerender component, it is a default values, never do this mistake again,
   // be careful
 
+  const [searchParams] = useSearchParams();
   useEffect(() => {
     if (!searchParams.size) {
       return;

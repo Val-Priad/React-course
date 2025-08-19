@@ -1,16 +1,16 @@
 {
   "cities": [
     {
-      "cityName": "Sintra",
+      "cityName": "Lisbon",
       "country": "Portugal",
       "emoji": "🇵🇹",
-      "date": "2027-11-01T10:15:30.000Z",
-      "notes": "Fairy tale palaces and stunning mountain views",
+      "date": "2027-10-31T15:59:59.138Z",
+      "notes": "My favorite city so far!",
       "position": {
-        "lat": 38.8029,
-        "lng": -9.3817
+        "lat": 38.727881642324164,
+        "lng": -9.140900099907554
       },
-      "id": 73930387
+      "id": 73930385
     },
     {
       "cityName": "Madrid",
@@ -25,30 +25,6 @@
       "id": 17806751
     },
     {
-      "cityName": "Barcelona",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-18T14:45:22.000Z",
-      "notes": "Gaudí's architecture is breathtaking!",
-      "position": {
-        "lat": 41.3851,
-        "lng": 2.1734
-      },
-      "id": 17806752
-    },
-    {
-      "cityName": "Seville",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-12T16:20:15.000Z",
-      "notes": "Flamenco and amazing tapas culture",
-      "position": {
-        "lat": 37.3886,
-        "lng": -5.9823
-      },
-      "id": 17806753
-    },
-    {
       "cityName": "Berlin",
       "country": "Germany",
       "emoji": "🇩🇪",
@@ -61,28 +37,64 @@
       "id": 98443197
     },
     {
-      "cityName": "Munich",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-15T11:30:45.000Z",
-      "notes": "Oktoberfest vibes and beautiful Alpine views",
+      "id": "040d",
+      "cityName": "Kyiv",
+      "country": "Ukraine",
+      "date": "2025-08-19",
+      "notes": "",
       "position": {
-        "lat": 48.1351,
-        "lng": 11.5820
+        "lat": 50.462203182879605,
+        "lng": 30.409812927246097
       },
-      "id": 98443198
+      "emoji": "🇺🇦"
     },
     {
-      "cityName": "Hamburg",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-09T13:15:30.000Z",
-      "notes": "Maritime charm and vibrant nightlife",
+      "id": "d7f2",
+      "cityName": "Staryy Oskol",
+      "country": "Russian Federation (the)",
+      "date": "2025-08-19",
+      "notes": "",
       "position": {
-        "lat": 53.5511,
-        "lng": 9.9937
+        "lat": 51.29627609493991,
+        "lng": 37.87811279296876
       },
-      "id": 98443199
+      "emoji": "🇷🇺"
+    },
+    {
+      "id": "6763",
+      "cityName": "Osakarovka",
+      "country": "Kazakhstan",
+      "date": "2025-08-19",
+      "notes": "",
+      "position": {
+        "lat": 50.56928286558243,
+        "lng": 72.94921875000001
+      },
+      "emoji": "🇰🇿"
+    },
+    {
+      "id": "45cc",
+      "cityName": "Osakarovka",
+      "country": "Kazakhstan",
+      "date": "2025-08-19",
+      "notes": "",
+      "position": {
+        "lat": 50.56928286558243,
+        "lng": 72.94921875000001
+      },
+      "emoji": "🇰🇿"
+    },
+    {
+      "id": "f4ec",
+      "cityName": "Nova Maringa",
+      "country": "Brazil",
+      "date": "2025-08-19",
+      "notes": "",
+      "position": {
+        "lat": -12.554563528593656,
+        "lng": -56.953125
+      },
+      "emoji": "🇧🇷"
     }
   ]
 }

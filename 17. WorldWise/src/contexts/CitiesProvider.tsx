@@ -4,7 +4,7 @@ import { CitiesContext } from "./CitiesContext";
 import type { TCity } from "../App";
 
 function CitiesProvider({ children }: { children: React.ReactNode }) {
-  const [cities, setCities] = useState([]);
+  const [cities, setCities] = useState<TCity[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [currentCity, setCurrentCity] = useState<TCity | undefined>(undefined);
 
@@ -39,9 +39,31 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
     }
   }
 
+  async function postCity(newCity: TCity) {
+    try {
+      setIsLoading(true);
+      const res = await fetch(`${API_URL}/cities`, {
+        method: "POST",
+        body: JSON.stringify(newCity),
+        headers: {
+          "Content-Type": "application/json",
+        },
+      });
+
+      if (!res.ok) throw new Error("Error occurred while fetching cities");
+
+      const data = await res.json();
+      setCities((cities) => [...cities, data]);
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+
   return (
     <CitiesContext.Provider
-      value={{ cities, isLoading, currentCity, getCity }}
+      value={{ cities, isLoading, currentCity, getCity, postCity }}
     >
       {children}
     </CitiesContext.Provider>

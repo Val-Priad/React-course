@@ -8,6 +8,7 @@ type TCityContext = {
   isLoading: boolean;
   currentCity: TCity | undefined;
   getCity: (id: string) => void;
+  postCity: (newCity: TCity) => void;
 };
 
 export const CitiesContext = createContext<TCityContext | undefined>(
