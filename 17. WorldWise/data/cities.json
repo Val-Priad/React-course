@@ -1,100 +1,88 @@
 {
   "cities": [
     {
-      "cityName": "Lisbon",
-      "country": "Portugal",
-      "emoji": "🇵🇹",
-      "date": "2027-10-31T15:59:59.138Z",
-      "notes": "My favorite city so far!",
-      "position": {
-        "lat": 38.727881642324164,
-        "lng": -9.140900099907554
-      },
-      "id": 73930385
-    },
-    {
-      "cityName": "Madrid",
-      "country": "Spain",
-      "emoji": "🇪🇸",
-      "date": "2027-07-15T08:22:53.976Z",
-      "notes": "",
-      "position": {
-        "lat": 40.46635901755316,
-        "lng": -3.7133789062500004
-      },
-      "id": 17806751
-    },
-    {
-      "cityName": "Berlin",
-      "country": "Germany",
-      "emoji": "🇩🇪",
-      "date": "2027-02-12T09:24:11.863Z",
-      "notes": "Amazing 😃",
-      "position": {
-        "lat": 52.53586782505711,
-        "lng": 13.376933665713324
-      },
-      "id": 98443197
-    },
-    {
-      "id": "040d",
-      "cityName": "Kyiv",
-      "country": "Ukraine",
+      "id": "32fa",
+      "cityName": "Kenmare",
+      "country": "Ireland",
       "date": "2025-08-19",
       "notes": "",
       "position": {
-        "lat": 50.462203182879605,
-        "lng": 30.409812927246097
+        "lat": 51.80861475198521,
+        "lng": -9.711914062500002
       },
-      "emoji": "🇺🇦"
+      "emoji": "🇮🇪"
     },
     {
-      "id": "d7f2",
-      "cityName": "Staryy Oskol",
-      "country": "Russian Federation (the)",
+      "id": "402a",
+      "cityName": "Division No. 10, Subd. D",
+      "country": "Canada",
       "date": "2025-08-19",
       "notes": "",
       "position": {
-        "lat": 51.29627609493991,
-        "lng": 37.87811279296876
+        "lat": 54.41892996865827,
+        "lng": -67.06054687500001
       },
-      "emoji": "🇷🇺"
+      "emoji": "🇨🇦"
     },
     {
-      "id": "6763",
-      "cityName": "Osakarovka",
-      "country": "Kazakhstan",
+      "id": "e7e9",
+      "cityName": "Ilulissat",
+      "country": "Greenland",
       "date": "2025-08-19",
       "notes": "",
       "position": {
-        "lat": 50.56928286558243,
-        "lng": 72.94921875000001
+        "lat": 75.14077784070429,
+        "lng": -45
       },
-      "emoji": "🇰🇿"
+      "emoji": "🇬🇱"
     },
     {
-      "id": "45cc",
-      "cityName": "Osakarovka",
-      "country": "Kazakhstan",
+      "id": "96a1",
+      "cityName": "Daneborg",
+      "country": "Greenland",
       "date": "2025-08-19",
       "notes": "",
       "position": {
-        "lat": 50.56928286558243,
-        "lng": 72.94921875000001
+        "lat": 71.30079291637452,
+        "lng": -40.07812500000001
       },
-      "emoji": "🇰🇿"
+      "emoji": "🇬🇱"
     },
     {
-      "id": "f4ec",
-      "cityName": "Nova Maringa",
-      "country": "Brazil",
+      "id": "b7b8",
+      "cityName": "Tayma’",
+      "country": "Saudi Arabia",
       "date": "2025-08-19",
       "notes": "",
       "position": {
-        "lat": -12.554563528593656,
-        "lng": -56.953125
+        "lat": 27.029770731463564,
+        "lng": 39.57275390625001
       },
-      "emoji": "🇧🇷"
+      "emoji": "🇸🇦"
+    },
+    {
+      "id": "4a8c",
+      "cityName": "Daneborg",
+      "country": "Greenland",
+      "date": "2025-08-19",
+      "notes": "",
+      "position": {
+        "lat": 71.15584320791393,
+        "lng": -39.72656250000001
+      },
+      "emoji": "🇬🇱"
+    },
+    {
+      "id": "7b27",
+      "cityName": "Daneborg",
+      "country": "Greenland",
+      "date": "2025-08-19",
+      "notes": "Amogus?",
+      "position": {
+        "lat": 71.095425047661,
+        "lng": -43.23120117187501
+      },
+      "emoji": "🇬🇱"
     }
   ]
 }

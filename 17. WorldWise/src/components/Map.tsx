@@ -51,10 +51,6 @@ function Map() {
     setMapPosition(userPosition);
   }, [userPosition]);
 
-  if (!cities.length) {
-    return <></>;
-  }
-
   return (
     <div className={styles.mapContainer}>
       {!userPosition && (

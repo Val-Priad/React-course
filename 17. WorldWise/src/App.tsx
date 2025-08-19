@@ -21,7 +21,7 @@ export type TCity = {
     lat: number;
     lng: number;
   };
-  id?: number;
+  id?: string;
 };
 
 function App() {
