@@ -1,16 +1,23 @@
-import styles from "./User.module.css";
-
-const FAKE_USER = {
-  name: "Jack",
-  email: "jack@example.com",
-  password: "qwerty",
-  avatar: "https://i.pravatar.cc/100?u=zz",
-};
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "../contexts/AuthContext";
+import styles from "./styles/User.module.css";
 
 function User() {
-  const user = FAKE_USER;
+  const { user, logout } = useAuth();
+  const navigate = useNavigate();
 
-  function handleClick() {}
+  function handleClick() {
+    logout();
+    navigate("/");
+  }
+
+  if (!user)
+    return (
+      <img
+        src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbmxscHo2dWR2YmY1ZXIyNmV4ejQxYWFzOTV0MzFid2xwMWlzOWhwcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/naiatn5LxTOsU/giphy.gif"
+        style={{ width: "100%" }}
+      ></img>
+    );
 
   return (
     <div className={styles.user}>

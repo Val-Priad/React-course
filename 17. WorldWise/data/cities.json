@@ -13,42 +13,6 @@
       "emoji": "🇮🇪"
     },
     {
-      "id": "402a",
-      "cityName": "Division No. 10, Subd. D",
-      "country": "Canada",
-      "date": "2025-08-19",
-      "notes": "",
-      "position": {
-        "lat": 54.41892996865827,
-        "lng": -67.06054687500001
-      },
-      "emoji": "🇨🇦"
-    },
-    {
-      "id": "e7e9",
-      "cityName": "Ilulissat",
-      "country": "Greenland",
-      "date": "2025-08-19",
-      "notes": "",
-      "position": {
-        "lat": 75.14077784070429,
-        "lng": -45
-      },
-      "emoji": "🇬🇱"
-    },
-    {
-      "id": "96a1",
-      "cityName": "Daneborg",
-      "country": "Greenland",
-      "date": "2025-08-19",
-      "notes": "",
-      "position": {
-        "lat": 71.30079291637452,
-        "lng": -40.07812500000001
-      },
-      "emoji": "🇬🇱"
-    },
-    {
       "id": "b7b8",
       "cityName": "Tayma’",
       "country": "Saudi Arabia",
@@ -61,18 +25,6 @@
       "emoji": "🇸🇦"
     },
     {
-      "id": "4a8c",
-      "cityName": "Daneborg",
-      "country": "Greenland",
-      "date": "2025-08-19",
-      "notes": "",
-      "position": {
-        "lat": 71.15584320791393,
-        "lng": -39.72656250000001
-      },
-      "emoji": "🇬🇱"
-    },
-    {
       "id": "7b27",
       "cityName": "Daneborg",
       "country": "Greenland",
@@ -83,6 +35,18 @@
         "lng": -43.23120117187501
       },
       "emoji": "🇬🇱"
+    },
+    {
+      "id": "c28e",
+      "cityName": "Prague",
+      "country": "Czechia",
+      "date": "2025-08-21",
+      "notes": "bababoi",
+      "position": {
+        "lat": 50.086776271666096,
+        "lng": 14.424018859863283
+      },
+      "emoji": "🇨🇿"
     }
   ]
 }

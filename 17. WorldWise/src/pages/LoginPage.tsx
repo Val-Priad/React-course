@@ -1,16 +1,34 @@
-import { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./styles/LoginPage.module.css";
 import NavigationBar from "../components/NavigationBar";
+import { FAKE_USER } from "../Config";
+import { useAuth } from "../contexts/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 export default function LoginPage() {
-  // PRE-FILL FOR DEV PURPOSES
-  const [email, setEmail] = useState("jack@example.com");
-  const [password, setPassword] = useState("qwerty");
+  const { login, isAuthenticated } = useAuth();
+  const [email, setEmail] = useState(FAKE_USER.email);
+  const [password, setPassword] = useState(FAKE_USER.password);
+  const navigate = useNavigate();
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    if (!email || !password) return;
+
+    login(email, password);
+  }
+
+  useEffect(() => {
+    if (!isAuthenticated) return;
+
+    navigate("/app", { replace: true });
+  }, [navigate, isAuthenticated]);
 
   return (
     <main className={styles.login}>
       <NavigationBar />
-      <form className={styles.form}>
+      <form className={styles.form} onSubmit={(e) => handleSubmit(e)}>
         <div className={styles.row}>
           <label htmlFor="email">Email address</label>
           <input
