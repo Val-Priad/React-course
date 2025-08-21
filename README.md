@@ -11,6 +11,7 @@
 - Section 8: Eat and split project - eat together with friends and split the bill
 - Section 10: UsePopcorn project - select & rate watched movies
 - Section 16: React Quiz
+- Section 17: WorldWise project - track visited countries
 - Section 18: Atomic blog
 
 ## Coding challenges
@@ -24,3 +25,4 @@
 - Challenge 7: Currency converter
 - Challenge 8: Get user position with custom hook
 - Challenge 9: Bank account built with useReducer hook
+- Challenge 10: Refactoring "Section 16. React quiz" to use useContext()
