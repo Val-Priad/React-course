@@ -1,4 +1,4 @@
-import { memo, useCallback, useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import clickSound from "./ClickSound.m4a";
 
 function Calculator({ workouts, allowSound }) {
@@ -80,7 +80,7 @@ function Calculator({ workouts, allowSound }) {
             setDuration((prev) => prev - 1);
           }}
         >
-          –
+          -
         </button>
         <p>
           {mins < 10 && "0"}
