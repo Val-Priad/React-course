@@ -13,6 +13,7 @@
 - Section 16: React Quiz
 - Section 17: WorldWise project - track visited countries
 - Section 18: Atomic blog
+- Section 19: Workout timer - learning some tricks with useEffect hook
 
 ## Coding challenges
 
