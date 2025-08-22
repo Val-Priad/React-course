@@ -1,4 +1,4 @@
-import { useEffect, useReducer } from "react";
+import { useCallback, useEffect, useReducer } from "react";
 import { API_URL } from "../Config";
 import { CitiesContext } from "./CitiesContext";
 import type { TCity } from "../App";
@@ -84,7 +84,7 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
     fetchCities();
   }, []);
 
-  async function getCity(id: string) {
+  const getCity = useCallback(async function (id: string) {
     try {
       dispatch({ type: "loading" });
       const res = await fetch(`${API_URL}/cities/${id}`);
@@ -96,11 +96,10 @@ function CitiesProvider({ children }: { children: React.ReactNode }) {
     } catch (error) {
       if (error instanceof Error) {
         console.error(error);
-        console.log("Amogus");
         dispatch({ type: "rejected", payload: error.message });
       }
     }
-  }
+  }, []);
 
   async function postCity(newCity: TCity) {
     try {

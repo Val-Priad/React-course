@@ -4,6 +4,7 @@ import NavigationBar from "../components/NavigationBar";
 import { FAKE_USER } from "../Config";
 import { useAuth } from "../contexts/AuthContext";
 import { useNavigate } from "react-router-dom";
+import Button from "../components/Button";
 
 export default function LoginPage() {
   const { login, isAuthenticated } = useAuth();
@@ -50,7 +51,7 @@ export default function LoginPage() {
         </div>
 
         <div>
-          <button>Login</button>
+          <Button type="primary">Login</Button>
         </div>
       </form>
     </main>

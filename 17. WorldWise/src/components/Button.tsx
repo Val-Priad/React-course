@@ -6,11 +6,14 @@ function Button({
   type,
 }: {
   children: React.ReactNode;
-  onClick: (e?: React.MouseEvent<HTMLButtonElement>) => void;
-  type: string;
+  onClick?: (e?: React.MouseEvent<HTMLButtonElement>) => void;
+  type?: string;
 }) {
   return (
-    <button className={`${styles.btn} ${styles[type]}`} onClick={onClick}>
+    <button
+      className={`${styles.btn} ${type ? styles[type] : ""}`}
+      onClick={onClick}
+    >
       {children}
     </button>
   );

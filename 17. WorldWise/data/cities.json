@@ -1,30 +1,6 @@
 {
   "cities": [
     {
-      "id": "32fa",
-      "cityName": "Kenmare",
-      "country": "Ireland",
-      "date": "2025-08-19",
-      "notes": "",
-      "position": {
-        "lat": 51.80861475198521,
-        "lng": -9.711914062500002
-      },
-      "emoji": "🇮🇪"
-    },
-    {
-      "id": "b7b8",
-      "cityName": "Tayma’",
-      "country": "Saudi Arabia",
-      "date": "2025-08-19",
-      "notes": "",
-      "position": {
-        "lat": 27.029770731463564,
-        "lng": 39.57275390625001
-      },
-      "emoji": "🇸🇦"
-    },
-    {
       "id": "7b27",
       "cityName": "Daneborg",
       "country": "Greenland",

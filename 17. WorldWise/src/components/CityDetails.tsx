@@ -21,7 +21,7 @@ function CityDetails() {
     if (id) {
       getCity(id);
     }
-  }, [id]);
+  }, [id, getCity]);
 
   if (!currentCity) {
     return <></>;
