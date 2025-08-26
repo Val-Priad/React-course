@@ -1,9 +1,10 @@
+import { DEFAULT_CURRENCY } from "../../Config";
 import { useAppSelector } from "../../store";
 
 function formatCurrency(value: number) {
   return new Intl.NumberFormat("en", {
     style: "currency",
-    currency: "USD",
+    currency: DEFAULT_CURRENCY,
   }).format(value);
 }
 
