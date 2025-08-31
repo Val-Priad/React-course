@@ -79,9 +79,9 @@ export interface OrderResponse {
 }
 
 export interface CartItem {
+  pizzaId: number;
   addIngredients: string[];
   removeIngredients: string[];
-  pizzaId: number;
   name: string;
   quantity: number;
   unitPrice: number;

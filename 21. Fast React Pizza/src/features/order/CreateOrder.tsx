@@ -1,6 +1,7 @@
 import { Form, useActionData, useNavigation } from "react-router-dom";
 import { type Errors } from "./actionCreateOrder";
 import Button from "../ui/Button";
+import { useAppSelector } from "../../store";
 
 // https://uibakery.io/regex-library/phone-number
 const fakeCart = [
@@ -29,6 +30,7 @@ const fakeCart = [
 
 function CreateOrder() {
   // const [withPriority, setWithPriority] = useState(false);
+  const username = useAppSelector((state) => state.user.username);
   const cart = fakeCart;
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
@@ -49,6 +51,7 @@ function CreateOrder() {
               name="customer"
               id="customer"
               className="input w-full"
+              defaultValue={username}
             />
           </div>
         </div>

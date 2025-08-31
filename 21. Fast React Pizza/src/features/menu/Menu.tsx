@@ -4,7 +4,6 @@ import { Pizza } from "../services/apiRestaurant";
 
 function Menu() {
   const menu = useLoaderData() as Pizza[];
-  console.log(menu);
   return (
     <ul className="divide-y divide-stone-200 px-2">
       {menu.map((pizza) => (
