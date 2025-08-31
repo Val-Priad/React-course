@@ -1,5 +1,7 @@
 import { redirect } from "react-router-dom";
 import { createOrder, OrderRequest } from "../services/apiRestaurant";
+import store from "../../store";
+import { clearCart } from "../cart/CartSlice";
 
 export type Errors = {
   phone?: string;
@@ -22,6 +24,8 @@ async function createOrderAction({ request }: { request: Request }) {
 
   const newOrder = await createOrder(order);
 
+  store.dispatch(clearCart());
+
   return redirect(`/order/${newOrder.id}`);
 }
 
@@ -40,7 +44,7 @@ function errorOccurred(order: OrderRequest, errors: Errors) {
 
 const isValidPhone = (str: string) =>
   /^\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}$/.test(
-    str
+    str,
   );
 
 export default createOrderAction;

@@ -8,7 +8,7 @@ import EmptyCart from "./EmptyCart";
 
 function Cart() {
   const username = useAppSelector((state) => state.user.username);
-  const cart = useAppSelector((state) => getCart(state));
+  const cart = useAppSelector(getCart);
   const dispatch = useDispatch();
 
   if (!cart.length) return <EmptyCart />;

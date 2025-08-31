@@ -2,39 +2,21 @@ import { Form, useActionData, useNavigation } from "react-router-dom";
 import { type Errors } from "./actionCreateOrder";
 import Button from "../ui/Button";
 import { useAppSelector } from "../../store";
-
-// https://uibakery.io/regex-library/phone-number
-const fakeCart = [
-  {
-    pizzaId: 12,
-    name: "Mediterranean",
-    quantity: 2,
-    unitPrice: 16,
-    totalPrice: 32,
-  },
-  {
-    pizzaId: 6,
-    name: "Vegetale",
-    quantity: 1,
-    unitPrice: 13,
-    totalPrice: 13,
-  },
-  {
-    pizzaId: 11,
-    name: "Spinach and Mushroom",
-    quantity: 1,
-    unitPrice: 15,
-    totalPrice: 15,
-  },
-];
+import { getCart, getTotalCartPrice } from "../cart/CartSlice";
+import EmptyCart from "../cart/EmptyCart";
+import { useState } from "react";
 
 function CreateOrder() {
-  // const [withPriority, setWithPriority] = useState(false);
+  const [withPriority, setWithPriority] = useState(false);
   const username = useAppSelector((state) => state.user.username);
-  const cart = fakeCart;
+  const cart = useAppSelector(getCart);
+  const totalPrice = useAppSelector(getTotalCartPrice);
+  const priorityPrice = totalPrice * 0.2;
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   const formErrors = useActionData() as Errors;
+
+  if (!cart.length) return <EmptyCart />;
 
   return (
     <div className="px-4 py-6">
@@ -91,12 +73,12 @@ function CreateOrder() {
 
         <div className="align-center flex gap-x-4">
           <input
+            checked={withPriority}
+            onChange={(e) => setWithPriority(e.target.checked)}
             type="checkbox"
             name="priority"
             id="priority"
             className="h-6 w-6 accent-yellow-400 focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:outline-none"
-            // value={withPriority}
-            // onChange={(e) => setWithPriority(e.target.checked)}
           />
           <label htmlFor="priority">Want to yo give your order priority?</label>
         </div>
@@ -104,7 +86,14 @@ function CreateOrder() {
         <div className="mt-4 text-right">
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
           <Button type="primary" isSubmitting={isSubmitting}>
-            {isSubmitting ? <>Placing Order...</> : <>Order now</>}
+            {isSubmitting ? (
+              <>Placing Order...</>
+            ) : (
+              <>
+                Order now from{" "}
+                {withPriority ? totalPrice + priorityPrice : totalPrice}
+              </>
+            )}
           </Button>
         </div>
       </Form>
