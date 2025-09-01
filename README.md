@@ -15,6 +15,7 @@
 - Section 18: Atomic blog
 - Section 19: Workout timer - learning some tricks with useEffect hook
 - Section 20: Redux banking - small banking app to learn the basics of Redux
+- Section 21: Fast React Pizza - pizzeria website
 
 ## Coding challenges
 

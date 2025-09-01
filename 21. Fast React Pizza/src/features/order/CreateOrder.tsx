@@ -1,27 +1,35 @@
 import { Form, useActionData, useNavigation } from "react-router-dom";
 import { type Errors } from "./actionCreateOrder";
 import Button from "../ui/Button";
-import { useAppSelector } from "../../store";
+import { useAppDispatch, useAppSelector } from "../../store";
 import { getCart, getTotalCartPrice } from "../cart/CartSlice";
 import EmptyCart from "../cart/EmptyCart";
 import { useState } from "react";
+import { fetchAddress } from "../user/UserSlice";
 
 function CreateOrder() {
   const [withPriority, setWithPriority] = useState(false);
-  const username = useAppSelector((state) => state.user.username);
+  const dispatch = useAppDispatch();
   const cart = useAppSelector(getCart);
   const totalPrice = useAppSelector(getTotalCartPrice);
   const priorityPrice = totalPrice * 0.2;
   const navigation = useNavigation();
   const isSubmitting = navigation.state === "submitting";
   const formErrors = useActionData() as Errors;
+  const {
+    username,
+    status: addressStatus,
+    position,
+    address,
+    error: addressError,
+  } = useAppSelector((state) => state.user);
+  const isLoadingAddress = addressStatus === "loading";
 
   if (!cart.length) return <EmptyCart />;
 
   return (
     <div className="px-4 py-6">
       <h2 className="mt-4 text-xl font-semibold">Ready to order? Let's go!</h2>
-
       <Form method="POST" className="mt-10">
         <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
           <label htmlFor="customer" className="sm:text-md sm:basis-40">
@@ -57,7 +65,7 @@ function CreateOrder() {
           </div>
         </div>
 
-        <div className="mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
+        <div className="relative mb-5 flex flex-col gap-2 sm:flex-row sm:items-center">
           <label htmlFor="address" className="sm:text-md sm:basis-40">
             Address
           </label>
@@ -67,7 +75,25 @@ function CreateOrder() {
               name="address"
               id="address"
               className="input w-full"
+              disabled={isLoadingAddress}
+              defaultValue={address}
             />
+            {!position.latitude && !position.longitude && (
+              <span className="absolute top-1.5 right-2">
+                <Button
+                  disabled={isLoadingAddress}
+                  type="small"
+                  onClick={() => dispatch(fetchAddress())}
+                >
+                  get location
+                </Button>
+              </span>
+            )}
+            {addressStatus === "error" && (
+              <p className="mt-2 rounded-full bg-red-100 p-2 text-xs text-red-700">
+                {addressError}
+              </p>
+            )}
           </div>
         </div>
 
@@ -85,7 +111,16 @@ function CreateOrder() {
 
         <div className="mt-4 text-right">
           <input type="hidden" name="cart" value={JSON.stringify(cart)} />
-          <Button type="primary" isSubmitting={isSubmitting}>
+          <input
+            type="hidden"
+            name="position"
+            value={
+              position.latitude && position.longitude
+                ? `${position.latitude}, ${position.longitude}`
+                : ""
+            }
+          />
+          <Button type="primary" disabled={isSubmitting || isLoadingAddress}>
             {isSubmitting ? (
               <>Placing Order...</>
             ) : (

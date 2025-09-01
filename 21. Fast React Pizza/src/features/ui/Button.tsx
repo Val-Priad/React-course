@@ -2,13 +2,13 @@ import { Link } from "react-router-dom";
 
 function Button({
   children,
-  isSubmitting,
+  disabled,
   to,
   type,
   onClick,
 }: {
   children: React.ReactNode;
-  isSubmitting?: boolean;
+  disabled?: boolean;
   to?: string;
   onClick?: () => void;
   type: "round" | "small" | "primary" | "secondary";
@@ -33,7 +33,7 @@ function Button({
   }
 
   return (
-    <button onClick={onClick} className={styles[type]} disabled={isSubmitting}>
+    <button onClick={onClick} className={styles[type]} disabled={disabled}>
       {children}
     </button>
   );
